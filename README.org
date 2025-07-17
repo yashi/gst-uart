@@ -1,0 +1,30 @@
+#+title: UART / TTY Plugins for GStreamer
+
+This GStreamer plugin provides UART/TTY support. It has only been tested on Linux.
+
+* How To Build
+  #+begin_example
+    meson setup builddir
+    ninja -C builddir
+  #+end_example
+
+* How To Run
+  #+begin_example
+    export GST_PLUGIN_PATH=$(readlink -f builddir/)
+    gst-launch-1.0 uartsrc device=/dev/ttyUSB0 ! fdsink
+  #+end_example
+
+* To See All Properties
+
+  This plugin provides two elements—`uartsrc` and `uartsink`. To list
+  all available properties for each element, run:
+
+  #+begin_example
+    gst-inspect-1.0 uartsrc
+  #+end_example
+
+  or
+
+  #+begin_example
+    gst-inspect-1.0 uartsink
+  #+end_example
